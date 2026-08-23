@@ -1,0 +1,784 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>[YOUR NAME] — Industrial Mechatronics Technician</title>
+<meta name="description" content="[YOUR NAME], Industrial Mechatronics Technician — PLC programming, electrical controls, and mechanical systems.">
+
+<!--
+  ============================================================
+  HOW TO FILL THIS IN
+  ============================================================
+  Every placeholder is wrapped in [BRACKETS]. Search for "[" in
+  your editor to find them all. Sections, in order:
+    1. Top bar / status
+    2. Hero (name, title, stats, CTA)
+    3. PANEL A — Skills
+    4. PANEL B — Experience (maintenance log)
+    5. PANEL C — Projects (job cards)
+    6. PANEL D — Certifications
+    7. PANEL E — Contact
+  Swap [resume.pdf] for a real link once you upload your CV.
+  Swap [photo.jpg] for a real headshot, or delete the <img> and
+  its wrapper to keep the icon placeholder instead.
+  ============================================================
+-->
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@600;700;800&family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+  :root{
+    --ink:#171B21;
+    --ink-soft:#2A313B;
+    --screen:#F1F3F6;
+    --screen-alt:#E7EAEE;
+    --steel:#5B6673;
+    --line:#D8DDE3;
+    --line-dark:#3A424D;
+    --amber:#F5A623;
+    --amber-dim:#C98518;
+    --green:#2FB86E;
+    --red-stamp:#C1443D;
+    --white:#FFFFFF;
+
+    --font-display:'Big Shoulders Display', sans-serif;
+    --font-mono:'IBM Plex Mono', monospace;
+    --font-body:'IBM Plex Sans', sans-serif;
+  }
+
+  *{margin:0;padding:0;box-sizing:border-box;}
+
+  html{scroll-behavior:smooth;}
+  @media (prefers-reduced-motion: reduce){
+    html{scroll-behavior:auto;}
+    *{animation-duration:0.001ms !important; animation-iteration-count:1 !important; transition-duration:0.001ms !important;}
+  }
+
+  body{
+    background:var(--screen);
+    color:var(--ink);
+    font-family:var(--font-body);
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+  }
+
+  a{color:inherit;}
+
+  :focus-visible{
+    outline:3px solid var(--amber);
+    outline-offset:2px;
+  }
+
+  img{max-width:100%;display:block;}
+
+  .wrap{max-width:1120px;margin-inline:auto;padding-inline:clamp(1.25rem,4vw,2.5rem);}
+
+  /* ---------- Top bar ---------- */
+  .topbar{
+    position:sticky;top:0;z-index:50;
+    background:var(--ink);
+    color:var(--screen);
+    border-bottom:2px solid var(--amber);
+  }
+  .topbar-inner{
+    display:flex;align-items:center;justify-content:space-between;
+    padding-block:.9rem;
+    max-width:1120px;margin-inline:auto;padding-inline:clamp(1.25rem,4vw,2.5rem);
+  }
+  .brand-tag{
+    font-family:var(--font-mono);
+    font-size:.8rem;letter-spacing:.08em;
+    display:flex;align-items:center;gap:.6rem;
+  }
+  .led{
+    width:9px;height:9px;border-radius:50%;
+    background:var(--green);
+    box-shadow:0 0 0 3px rgba(47,184,110,.18);
+    animation:pulse 2.4s ease-in-out infinite;
+    flex-shrink:0;
+  }
+  @keyframes pulse{
+    0%,100%{opacity:1;}
+    50%{opacity:.45;}
+  }
+  .topnav{display:flex;gap:1.6rem;font-family:var(--font-mono);font-size:.78rem;letter-spacing:.06em;}
+  .topnav a{text-decoration:none;color:var(--screen);opacity:.75;transition:opacity .15s ease;}
+  .topnav a:hover{opacity:1;color:var(--amber);}
+  .topnav{display:none;}
+  @media (min-width:720px){ .topnav{display:flex;} }
+
+  /* ---------- Panel label (breaker-panel style) ---------- */
+  .panel-label{
+    font-family:var(--font-mono);
+    font-size:.78rem;
+    letter-spacing:.1em;
+    color:var(--amber-dim);
+    display:flex;align-items:center;gap:.6rem;
+    margin-bottom:.6rem;
+  }
+  .panel-label .tag{
+    border:1px solid var(--amber-dim);
+    color:var(--ink);
+    background:var(--amber);
+    padding:.15rem .5rem;
+    border-radius:3px;
+    font-weight:600;
+  }
+
+  h2.section-title{
+    font-family:var(--font-display);
+    font-weight:800;
+    font-size:clamp(1.9rem,3.6vw,2.75rem);
+    letter-spacing:-.01em;
+    line-height:1.05;
+    text-transform:uppercase;
+    margin-bottom:2.2rem;
+    max-width:30ch;
+  }
+
+  section{padding-block:clamp(3.5rem,7vw,5.5rem);}
+
+  /* ---------- Trace divider ---------- */
+  .trace{
+    max-width:1120px;margin-inline:auto;padding-inline:clamp(1.25rem,4vw,2.5rem);
+  }
+  .trace svg{width:100%;height:20px;display:block;}
+
+  /* ---------- Hero ---------- */
+  .hero{
+    background:var(--ink);
+    color:var(--screen);
+    padding-block:clamp(3.5rem,8vw,6.5rem);
+    position:relative;
+    overflow:hidden;
+  }
+  .hero::before{
+    content:"";
+    position:absolute;inset:0;
+    background-image:
+      linear-gradient(var(--line-dark) 1px, transparent 1px),
+      linear-gradient(90deg, var(--line-dark) 1px, transparent 1px);
+    background-size:42px 42px;
+    opacity:.18;
+    pointer-events:none;
+  }
+  .hero-inner{position:relative;z-index:1;}
+  .hero-eyebrow{
+    font-family:var(--font-mono);
+    font-size:.8rem;
+    letter-spacing:.1em;
+    color:var(--amber);
+    display:flex;align-items:center;gap:.6rem;
+    margin-bottom:1.2rem;
+  }
+  .hero h1{
+    font-family:var(--font-display);
+    font-weight:800;
+    text-transform:uppercase;
+    font-size:clamp(2.6rem,7.5vw,5rem);
+    line-height:.95;
+    letter-spacing:-.01em;
+    max-width:14ch;
+  }
+  .hero .role{
+    font-family:var(--font-mono);
+    font-size:clamp(1rem,2vw,1.25rem);
+    color:var(--screen-alt);
+    margin-top:1rem;
+    letter-spacing:.02em;
+  }
+  .hero .role span{color:var(--amber);}
+  .hero p.bio{
+    margin-top:1.4rem;
+    max-width:56ch;
+    color:#B9C0C9;
+    font-size:1.02rem;
+  }
+
+  .hero-ctas{display:flex;flex-wrap:wrap;gap:.9rem;margin-top:2.2rem;}
+  .btn{
+    font-family:var(--font-mono);
+    font-size:.85rem;
+    letter-spacing:.04em;
+    padding:.85rem 1.5rem;
+    border-radius:4px;
+    text-decoration:none;
+    display:inline-flex;align-items:center;gap:.5rem;
+    border:1px solid transparent;
+    transition:transform .15s ease, background .2s ease, border-color .2s ease;
+    cursor:pointer;
+  }
+  .btn:hover{transform:translateY(-2px);}
+  .btn-primary{background:var(--amber);color:var(--ink);font-weight:600;}
+  .btn-primary:hover{background:#FFB944;}
+  .btn-secondary{background:transparent;color:var(--screen);border-color:var(--line-dark);}
+  .btn-secondary:hover{border-color:var(--amber);color:var(--amber);}
+
+  .readouts{
+    display:grid;grid-template-columns:repeat(3,1fr);
+    gap:1px;
+    margin-top:3rem;
+    background:var(--line-dark);
+    border:1px solid var(--line-dark);
+    max-width:640px;
+  }
+  .readout{background:var(--ink);padding:1.1rem 1.2rem;}
+  .readout .val{font-family:var(--font-display);font-weight:800;font-size:2.1rem;color:var(--amber);line-height:1;}
+  .readout .lbl{font-family:var(--font-mono);font-size:.72rem;color:var(--steel);letter-spacing:.05em;margin-top:.4rem;text-transform:uppercase;}
+
+  /* ---------- Skills panel (switch styling) ---------- */
+  .skills-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
+    gap:1.5rem;
+  }
+  .skill-group{
+    background:var(--white);
+    border:1px solid var(--line);
+    border-radius:6px;
+    padding:1.4rem 1.4rem 1.6rem;
+  }
+  .skill-group h3{
+    font-family:var(--font-mono);
+    font-size:.78rem;
+    letter-spacing:.06em;
+    text-transform:uppercase;
+    color:var(--steel);
+    margin-bottom:1rem;
+    padding-bottom:.7rem;
+    border-bottom:1px solid var(--line);
+  }
+  .skill-row{
+    display:flex;align-items:center;justify-content:space-between;
+    padding-block:.55rem;
+    font-size:.92rem;
+  }
+  .skill-row + .skill-row{border-top:1px dashed var(--line);}
+  .switch{
+    width:34px;height:18px;border-radius:9px;
+    background:var(--green);
+    position:relative;flex-shrink:0;
+    box-shadow:inset 0 0 0 1px rgba(0,0,0,.08);
+  }
+  .switch::after{
+    content:"";
+    position:absolute;top:2px;right:2px;
+    width:14px;height:14px;border-radius:50%;
+    background:var(--white);
+  }
+
+  /* ---------- Experience (maintenance log) ---------- */
+  .log{border-top:2px solid var(--ink);}
+  .log-entry{
+    display:grid;
+    grid-template-columns:140px 1fr;
+    gap:1.6rem;
+    padding-block:1.8rem;
+    border-bottom:1px solid var(--line);
+  }
+  @media (max-width:640px){
+    .log-entry{grid-template-columns:1fr;gap:.5rem;}
+  }
+  .log-date{
+    font-family:var(--font-mono);
+    font-size:.8rem;
+    color:var(--steel);
+    letter-spacing:.03em;
+  }
+  .log-role{
+    font-family:var(--font-display);
+    font-weight:700;
+    font-size:1.4rem;
+    text-transform:uppercase;
+    letter-spacing:-.005em;
+  }
+  .log-company{
+    font-family:var(--font-mono);
+    font-size:.85rem;
+    color:var(--amber-dim);
+    margin-top:.15rem;
+  }
+  .log-entry ul{
+    margin-top:.8rem;
+    padding-left:1.1rem;
+    color:var(--ink-soft);
+    font-size:.94rem;
+  }
+  .log-entry li{margin-bottom:.35rem;}
+
+  /* ---------- Projects — job card tickets (SIGNATURE ELEMENT) ---------- */
+  .tickets{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+    gap:2rem;
+  }
+  .ticket{
+    background:var(--white);
+    border:1px solid var(--line);
+    border-radius:2px;
+    position:relative;
+    box-shadow:0 2px 0 var(--line);
+  }
+  .ticket::before, .ticket::after{
+    content:"";
+    position:absolute;
+    width:16px;height:16px;
+    background:var(--screen);
+    border-radius:50%;
+    top:50%;transform:translateY(-50%);
+  }
+  .ticket::before{left:-9px;}
+  .ticket::after{right:-9px;}
+  .ticket-head{
+    display:flex;justify-content:space-between;align-items:flex-start;
+    padding:1.1rem 1.3rem;
+    border-bottom:1px dashed var(--line);
+  }
+  .ticket-no{
+    font-family:var(--font-mono);
+    font-size:.75rem;
+    color:var(--steel);
+    letter-spacing:.04em;
+  }
+  .stamp{
+    font-family:var(--font-mono);
+    font-size:.7rem;
+    font-weight:600;
+    letter-spacing:.08em;
+    color:var(--green);
+    border:1.5px solid var(--green);
+    padding:.2rem .55rem;
+    border-radius:3px;
+    transform:rotate(-4deg);
+    text-transform:uppercase;
+  }
+  .ticket-body{padding:1.3rem;}
+  .ticket-field{margin-bottom:.9rem;}
+  .ticket-field:last-child{margin-bottom:0;}
+  .ticket-field .k{
+    font-family:var(--font-mono);
+    font-size:.68rem;
+    letter-spacing:.08em;
+    text-transform:uppercase;
+    color:var(--steel);
+    margin-bottom:.25rem;
+  }
+  .ticket-field .v{font-size:.94rem;color:var(--ink);}
+  .ticket-field .v.title{
+    font-family:var(--font-display);
+    font-weight:700;
+    font-size:1.25rem;
+    text-transform:uppercase;
+    line-height:1.1;
+  }
+  .ticket-tools{
+    display:flex;flex-wrap:wrap;gap:.4rem;
+    margin-top:.3rem;
+  }
+  .ticket-tools span{
+    font-family:var(--font-mono);
+    font-size:.68rem;
+    background:var(--screen-alt);
+    color:var(--ink-soft);
+    padding:.2rem .5rem;
+    border-radius:3px;
+  }
+
+  /* ---------- Certifications — ID badges ---------- */
+  .badges{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+    gap:1.4rem;
+  }
+  .badge{
+    background:var(--ink);
+    color:var(--screen);
+    border-radius:8px;
+    padding:1.3rem;
+    position:relative;
+    border-left:5px solid var(--amber);
+  }
+  .badge .cert-name{
+    font-family:var(--font-display);
+    font-weight:700;
+    font-size:1.15rem;
+    text-transform:uppercase;
+    line-height:1.15;
+  }
+  .badge .cert-body{
+    font-family:var(--font-mono);
+    font-size:.75rem;
+    color:var(--steel);
+    margin-top:.5rem;
+  }
+  .badge .cert-year{
+    font-family:var(--font-mono);
+    font-size:.75rem;
+    color:var(--amber);
+    margin-top:.7rem;
+  }
+
+  /* ---------- Contact — request-a-callout panel ---------- */
+  .contact-panel{
+    background:var(--ink);
+    color:var(--screen);
+    border-radius:10px;
+    padding:clamp(2rem,5vw,3.5rem);
+    display:grid;
+    grid-template-columns:1.1fr .9fr;
+    gap:2.5rem;
+  }
+  @media (max-width:760px){
+    .contact-panel{grid-template-columns:1fr;}
+  }
+  .contact-panel h2{
+    font-family:var(--font-display);
+    font-weight:800;
+    text-transform:uppercase;
+    font-size:clamp(1.8rem,3.4vw,2.4rem);
+    line-height:1.05;
+    margin-bottom:1rem;
+  }
+  .contact-panel p{color:#B9C0C9;max-width:44ch;}
+  .contact-list{list-style:none;margin-top:1.6rem;display:flex;flex-direction:column;gap:.9rem;}
+  .contact-list a{
+    font-family:var(--font-mono);
+    font-size:.92rem;
+    text-decoration:none;
+    display:flex;align-items:center;gap:.7rem;
+    color:var(--screen);
+    opacity:.9;
+    transition:opacity .15s ease, color .15s ease;
+  }
+  .contact-list a:hover{opacity:1;color:var(--amber);}
+  .contact-list .dot{width:6px;height:6px;border-radius:50%;background:var(--amber);flex-shrink:0;}
+
+  footer{
+    padding-block:2.2rem;
+    text-align:center;
+    font-family:var(--font-mono);
+    font-size:.75rem;
+    color:var(--steel);
+  }
+</style>
+</head>
+<body>
+
+<!-- ============ TOP BAR ============ -->
+<div class="topbar">
+  <div class="topbar-inner">
+    <div class="brand-tag">
+      <span class="led" aria-hidden="true"></span>
+      [YOUR NAME] // MECHATRONICS
+    </div>
+    <nav class="topnav" aria-label="Section navigation">
+      <a href="#skills">Skills</a>
+      <a href="#experience">Experience</a>
+      <a href="#projects">Projects</a>
+      <a href="#certifications">Certs</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </div>
+</div>
+
+<!-- ============ HERO ============ -->
+<header class="hero">
+  <div class="wrap hero-inner">
+    <p class="hero-eyebrow"><span class="led" aria-hidden="true"></span> STATUS: AVAILABLE FOR HIRE — [YOUR CITY, COUNTRY]</p>
+    <h1>[Your Name]</h1>
+    <p class="role">Industrial Mechatronics Technician — <span>PLC · Electrical · Mechanical</span></p>
+    <p class="bio">
+      [Write 2–3 sentences here: what you do day to day, the systems you work on
+      (e.g. PLC-controlled pump stations, conveyor lines, packaging machinery),
+      and the brands/tools you're fluent in — e.g. Siemens, Allen-Bradley,
+      AutoCAD Electrical, VFDs. Keep it plain and specific, not a sales pitch.]
+    </p>
+    <div class="hero-ctas">
+      <a href="[resume.pdf]" class="btn btn-primary" download>Download Résumé ↓</a>
+      <a href="#contact" class="btn btn-secondary">Get In Touch</a>
+    </div>
+
+    <div class="readouts">
+      <div class="readout">
+        <div class="val">[X]</div>
+        <div class="lbl">Years in the field</div>
+      </div>
+      <div class="readout">
+        <div class="val">[X]</div>
+        <div class="lbl">Panels commissioned</div>
+      </div>
+      <div class="readout">
+        <div class="val">[X]</div>
+        <div class="lbl">Certifications</div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<div class="trace">
+  <svg viewBox="0 0 1200 20" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+    <path d="M0 10 H200 V4 H420 V16 H640 V4 H860 V16 H1080 V10 H1200" stroke="#F5A623" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+  </svg>
+</div>
+
+<!-- ============ PANEL A — SKILLS ============ -->
+<section id="skills">
+  <div class="wrap">
+    <p class="panel-label"><span class="tag">PANEL A</span> INSTRUMENT SCHEDULE</p>
+    <h2 class="section-title">Skills &amp; Systems</h2>
+
+    <div class="skills-grid">
+      <div class="skill-group">
+        <h3>Controls &amp; Programming</h3>
+        <div class="skill-row"><span>[Siemens TIA Portal / S7]</span><span class="switch" aria-hidden="true"></span></div>
+        <div class="skill-row"><span>[Allen-Bradley RSLogix / Studio 5000]</span><span class="switch" aria-hidden="true"></span></div>
+        <div class="skill-row"><span>[HMI / SCADA configuration]</span><span class="switch" aria-hidden="true"></span></div>
+        <div class="skill-row"><span>[Ladder logic & function block]</span><span class="switch" aria-hidden="true"></span></div>
+      </div>
+
+      <div class="skill-group">
+        <h3>Electrical &amp; Instrumentation</h3>
+        <div class="skill-row"><span>[Motor control circuits]</span><span class="switch" aria-hidden="true"></span></div>
+        <div class="skill-row"><span>[VFD / drive commissioning]</span><span class="switch" aria-hidden="true"></span></div>
+        <div class="skill-row"><span>[Fault diagnosis & troubleshooting]</span><span class="switch" aria-hidden="true"></span></div>
+        <div class="skill-row"><span>[Panel wiring to IEC/NEC standard]</span><span class="switch" aria-hidden="true"></span></div>
+      </div>
+
+      <div class="skill-group">
+        <h3>Mechanical &amp; Fluid Power</h3>
+        <div class="skill-row"><span>[Pneumatics & hydraulics]</span><span class="switch" aria-hidden="true"></span></div>
+        <div class="skill-row"><span>[Pump systems & VSD control]</span><span class="switch" aria-hidden="true"></span></div>
+        <div class="skill-row"><span>[Conveyor & mechanical alignment]</span><span class="switch" aria-hidden="true"></span></div>
+        <div class="skill-row"><span>[Preventive maintenance planning]</span><span class="switch" aria-hidden="true"></span></div>
+      </div>
+
+      <div class="skill-group">
+        <h3>Design &amp; Documentation</h3>
+        <div class="skill-row"><span>[AutoCAD Electrical]</span><span class="switch" aria-hidden="true"></span></div>
+        <div class="skill-row"><span>[EPLAN]</span><span class="switch" aria-hidden="true"></span></div>
+        <div class="skill-row"><span>[Single-line & P&ID diagrams]</span><span class="switch" aria-hidden="true"></span></div>
+        <div class="skill-row"><span>[As-built documentation]</span><span class="switch" aria-hidden="true"></span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="trace">
+  <svg viewBox="0 0 1200 20" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+    <path d="M0 10 H200 V4 H420 V16 H640 V4 H860 V16 H1080 V10 H1200" stroke="#D8DDE3" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+  </svg>
+</div>
+
+<!-- ============ PANEL B — EXPERIENCE ============ -->
+<section id="experience">
+  <div class="wrap">
+    <p class="panel-label"><span class="tag">PANEL B</span> SERVICE RECORD</p>
+    <h2 class="section-title">Experience</h2>
+
+    <div class="log">
+      <div class="log-entry">
+        <div class="log-date">[MON YYYY] — PRESENT</div>
+        <div>
+          <div class="log-role">[Job Title]</div>
+          <div class="log-company">[Company Name] — [City, Country]</div>
+          <ul>
+            <li>[Achievement or responsibility — be specific: what system, what you did, what changed.]</li>
+            <li>[Second bullet — a number if you have one: uptime %, panels built, downtime reduced.]</li>
+            <li>[Third bullet, optional.]</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="log-entry">
+        <div class="log-date">[MON YYYY] — [MON YYYY]</div>
+        <div>
+          <div class="log-role">[Job Title]</div>
+          <div class="log-company">[Company Name] — [City, Country]</div>
+          <ul>
+            <li>[Achievement or responsibility.]</li>
+            <li>[Second bullet.]</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="log-entry">
+        <div class="log-date">[MON YYYY] — [MON YYYY]</div>
+        <div>
+          <div class="log-role">[Job Title / Apprenticeship]</div>
+          <div class="log-company">[Company or Institution Name]</div>
+          <ul>
+            <li>[What you learned or did.]</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="trace">
+  <svg viewBox="0 0 1200 20" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+    <path d="M0 10 H200 V4 H420 V16 H640 V4 H860 V16 H1080 V10 H1200" stroke="#F5A623" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+  </svg>
+</div>
+
+<!-- ============ PANEL C — PROJECTS (job card tickets) ============ -->
+<section id="projects">
+  <div class="wrap">
+    <p class="panel-label"><span class="tag">PANEL C</span> COMPLETED WORK ORDERS</p>
+    <h2 class="section-title">Projects</h2>
+
+    <div class="tickets">
+      <div class="ticket">
+        <div class="ticket-head">
+          <span class="ticket-no">WO-[001]</span>
+          <span class="stamp">Completed</span>
+        </div>
+        <div class="ticket-body">
+          <div class="ticket-field">
+            <div class="k">Asset</div>
+            <div class="v title">[Machine or system name]</div>
+          </div>
+          <div class="ticket-field">
+            <div class="k">Task</div>
+            <div class="v">[What the job was — e.g. "Commissioned PLC-controlled pump station with remote start/stop and dry-run protection."]</div>
+          </div>
+          <div class="ticket-field">
+            <div class="k">Outcome</div>
+            <div class="v">[Result — e.g. "Reduced manual intervention; zero unplanned stops in first 90 days."]</div>
+          </div>
+          <div class="ticket-field">
+            <div class="k">Tools used</div>
+            <div class="ticket-tools">
+              <span>[TIA Portal]</span><span>[VFD]</span><span>[AutoCAD]</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="ticket">
+        <div class="ticket-head">
+          <span class="ticket-no">WO-[002]</span>
+          <span class="stamp">Completed</span>
+        </div>
+        <div class="ticket-body">
+          <div class="ticket-field">
+            <div class="k">Asset</div>
+            <div class="v title">[Machine or system name]</div>
+          </div>
+          <div class="ticket-field">
+            <div class="k">Task</div>
+            <div class="v">[What the job was.]</div>
+          </div>
+          <div class="ticket-field">
+            <div class="k">Outcome</div>
+            <div class="v">[Result.]</div>
+          </div>
+          <div class="ticket-field">
+            <div class="k">Tools used</div>
+            <div class="ticket-tools">
+              <span>[Tool]</span><span>[Tool]</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="ticket">
+        <div class="ticket-head">
+          <span class="ticket-no">WO-[003]</span>
+          <span class="stamp">Completed</span>
+        </div>
+        <div class="ticket-body">
+          <div class="ticket-field">
+            <div class="k">Asset</div>
+            <div class="v title">[Machine or system name]</div>
+          </div>
+          <div class="ticket-field">
+            <div class="k">Task</div>
+            <div class="v">[What the job was.]</div>
+          </div>
+          <div class="ticket-field">
+            <div class="k">Outcome</div>
+            <div class="v">[Result.]</div>
+          </div>
+          <div class="ticket-field">
+            <div class="k">Tools used</div>
+            <div class="ticket-tools">
+              <span>[Tool]</span><span>[Tool]</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="trace">
+  <svg viewBox="0 0 1200 20" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+    <path d="M0 10 H200 V4 H420 V16 H640 V4 H860 V16 H1080 V10 H1200" stroke="#D8DDE3" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+  </svg>
+</div>
+
+<!-- ============ PANEL D — CERTIFICATIONS ============ -->
+<section id="certifications">
+  <div class="wrap">
+    <p class="panel-label"><span class="tag">PANEL D</span> CREDENTIALS ON FILE</p>
+    <h2 class="section-title">Certifications</h2>
+
+    <div class="badges">
+      <div class="badge">
+        <div class="cert-name">[Certification Name]</div>
+        <div class="cert-body">[Issuing Body]</div>
+        <div class="cert-year">[YEAR]</div>
+      </div>
+      <div class="badge">
+        <div class="cert-name">[Certification Name]</div>
+        <div class="cert-body">[Issuing Body]</div>
+        <div class="cert-year">[YEAR]</div>
+      </div>
+      <div class="badge">
+        <div class="cert-name">[Certification Name]</div>
+        <div class="cert-body">[Issuing Body]</div>
+        <div class="cert-year">[YEAR]</div>
+      </div>
+      <div class="badge">
+        <div class="cert-name">[Safety Certification — e.g. OSHA / Lockout-Tagout]</div>
+        <div class="cert-body">[Issuing Body]</div>
+        <div class="cert-year">[YEAR]</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ PANEL E — CONTACT ============ -->
+<section id="contact">
+  <div class="wrap">
+    <div class="contact-panel">
+      <div>
+        <p class="panel-label" style="color:var(--amber)"><span class="tag">PANEL E</span> CALLOUT REQUEST</p>
+        <h2>Let's talk about your next project.</h2>
+        <p>Open to full-time roles, contract commissioning work, and site consultations. Response time is typically within [X] business days.</p>
+      </div>
+      <ul class="contact-list">
+        <li><a href="mailto:[you@email.com]"><span class="dot" aria-hidden="true"></span> [you@email.com]</a></li>
+        <li><a href="tel:[+000000000]"><span class="dot" aria-hidden="true"></span> [+00 000 000 000]</a></li>
+        <li><a href="[https://linkedin.com/in/yourprofile]" target="_blank" rel="noopener"><span class="dot" aria-hidden="true"></span> LinkedIn</a></li>
+        <li><a href="[https://wa.me/00000000000]" target="_blank" rel="noopener"><span class="dot" aria-hidden="true"></span> WhatsApp</a></li>
+        <li><a href="[resume.pdf]" download><span class="dot" aria-hidden="true"></span> Download Résumé (PDF)</a></li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<footer>
+  © <span id="year"></span> [Your Name]. Built to be read by a hiring manager in under 30 seconds.
+</footer>
+
+<script>
+  document.getElementById('year').textContent = new Date().getFullYear();
+</script>
+
+</body>
+</html>

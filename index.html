@@ -245,29 +245,38 @@
   .readout .val{font-family:var(--font-display);font-weight:800;font-size:2.1rem;color:var(--amber);line-height:1;}
   .readout .lbl{font-family:var(--font-mono);font-size:.72rem;color:var(--steel);letter-spacing:.05em;margin-top:.4rem;text-transform:uppercase;}
 
-  /* ---------- Profile photo (ID-badge size, scales up slightly on wider screens) ---------- */
+  /* ---------- Profile photo ---------- */
+  .profile-row{
+    display:grid;
+    grid-template-columns:110px 1fr;
+    align-items:center;
+    gap:1.5rem;
+    margin-top:.4rem;
+  }
   .photo-frame{
-    width:60px;
-    height:60px;
+    width:110px;
+    height:110px;
     border-radius:50%;
     overflow:hidden;
-    border:2px solid var(--amber);
-    box-shadow:0 0 0 4px rgba(245,166,35,.12);
+    border:3px solid var(--amber);
+    box-shadow:0 0 0 6px rgba(245,166,35,.12);
     position:relative;
     flex-shrink:0;
-  }
-  @media (min-width:480px){
-    .photo-frame{
-      width:72px;
-      height:72px;
-      border-width:3px;
-      box-shadow:0 0 0 5px rgba(245,166,35,.12);
-    }
   }
   .photo-frame img{
     width:100%;
     height:100%;
     object-fit:cover;
+  }
+  @media (max-width:600px){
+    .profile-row{
+      grid-template-columns:1fr;
+      gap:1.1rem;
+    }
+    .photo-frame{
+      width:92px;
+      height:92px;
+    }
   }
 
   /* ---------- Skills panel (switch styling) ---------- */
@@ -529,16 +538,17 @@
 <header class="hero">
   <div class="wrap hero-inner">
 
-    <!-- ID-badge header: photo travels with the status line, like a credential -->
-    <div class="id-header">
+    <!-- Profile block: photo is placed beside the name and professional title -->
+    <div class="profile-row">
       <div class="photo-frame">
         <img src="ramon.jpg" alt="Arnold Ochieng' — Industrial Mechatronics Technician">
       </div>
-      <p class="hero-eyebrow"><span class="led" aria-hidden="true"></span> STATUS: AVAILABLE FOR HIRE — NAIROBI, KENYA </p>
+      <div>
+        <p class="hero-eyebrow"><span class="led" aria-hidden="true"></span> STATUS: AVAILABLE FOR HIRE — NAIROBI, KENYA </p>
+        <h1> ARNOLD OCHIENG' </h1>
+        <p class="role">Industrial Mechatronics Technician — <span>PLC · Electrical · Mechanical</span></p>
+      </div>
     </div>
-
-    <h1> ARNOLD OCHIENG' </h1>
-    <p class="role">Industrial Mechatronics Technician — <span>PLC · Electrical · Mechanical</span></p>
     <p class="bio">
      Hello! I’m an Industrial Mechatronics Technician with more than 2 years of hands-on work experience.I work on industrial machineries, electrical systems, support in installation, commissioning, servicing and maintenance of production equipment.
      Aside from Electrical competence, I am capable of undertaking mechanical related tasks. I am experienced in 2D and 3D design and modelling software operation. 
@@ -630,41 +640,45 @@
       <div class="log-entry">
         <div class="log-date"> JAN 2026 — PRESENT</div>
         <div>
-          <div class="log-role"> MECHATRONICS TECHNICIAN </div>
+          <div class="log-role"> ELECTRICAL TECHNICIAN </div>
           <div class="log-company"> SUNVEAT FOODS LIMITED — THIKA, KENYA </div>
           <ul>
-            <li>Installation of 318 Killowatt plant at the company, Connected all electrical components and recommended a 100HP motor to be run through a VFD.</li>
-            <li>Improved machinery uptime by 40 %, panels built - 4, downtime reduced- 70%.</li>
-            <li>Attained Schneider Safety and Electrical Concept Certification from Schneider Electric University.</li>
+            <li>Conducts installation and commissioning of new snack-making machinery and production equipment.</li>
+            <li>Attends to breakdown maintenance during production and troubleshoots electrical and technical faults.</li>
+            <li>Plans and carries out inspection, servicing, preventive and corrective maintenance of machines.</li>
+            <li>Tests, repairs and documents maintenance and service work, including solar panels and facility lighting connections.</li>
+            <li>Works independently or as part of a team to successfully complete installation and maintenance projects.</li>
           </ul>
         </div>
       </div>
 
       <div class="log-entry">
-        <div class="log-date">JUN 2026 — DEC 2026 </div>
+        <div class="log-date">JUN 2025 — DEC 2025 </div>
         <div>
-          <div class="log-role"> FIELD SERVICE INTERNSHIP </div>
+          <div class="log-role"> SERVICE TECHNICIAN INTERNSHIP </div>
           <div class="log-company"> KONE EAST AFRICA  —  NAIROBI, KENYA </div>
           <ul>
-            <li> Installed KONE 24/7 solutions kit to 16 elevators to facilitate intelligent predictive maintenance of 
-KONE Equipment.</li>
-            <li> Participated in a major repair which entailed replacement of a 700kg Traction Motor.</li>
+            <li>Conducted E2 and E3 commissioning of newly installed elevators and participated in Dynamic Modular Plan and Modular Based Maintenance.</li>
+            <li>Installed KONE 24/7 solutions kits on 16 elevators to facilitate intelligent predictive maintenance.</li>
+            <li>Participated in major repair works including traction motor, traction sheave and escalator handrail replacements.</li>
+            <li>Troubleshot a major Schindler Port System breakdown and assisted in restoring the master database.</li>
+            <li>Completed Take 2 and Take 5 safety training and applied elevator-industry safety procedures and codes of practice.</li>
           </ul>
         </div>
       </div>
 
       <div class="log-entry">
-        <div class="log-date"> JAN 2022 — JUN 2024 </div>
+        <div class="log-date"> 2022 — 2024 </div>
         <div>
           <div class="log-role"> INDUSTRIAL MECHATRONIC APPRENTICE</div>
           <div class="log-company">PRESSMASTER EAST AFRICA </div>
           <ul>
-            <li>Learning about Machinery operation and Automation principles.</li>
-            <li>PLC operations which include basic system configuration and hardware, advanced programming commands, interfacing and troubleshooting.</li>
-            <li>ASI safety, ASI bus, Profibus, Intro S7, Danfoss FC-300, Encoder, Safety Limited Speed, and B&R Hardware. </li>
-            <li>Install, maintain, dismantle, repair, overhaul and rebuild electrical and mechanical equipment.</li>
-            <li>Analyzing equipment problems resulting from mechanical, pneumatic and hydraulic malfunctions.</li>
-            <li>Reading, interpreting and developing a variety of Technical Documentations.</li>
+            <li>Developed practical experience in machinery operation, industrial automation and equipment maintenance.</li>
+            <li>Worked with PLC configuration, hardware, programming commands, interfacing and troubleshooting.</li>
+            <li>Gained exposure to AS-i Safety, AS-i Bus, PROFIBUS, Siemens S7, Danfoss FC-300, encoders, Safety Limited Speed and B&amp;R hardware.</li>
+            <li>Installed, maintained, dismantled, repaired, overhauled and rebuilt electrical and mechanical equipment.</li>
+            <li>Analyzed equipment problems resulting from mechanical, pneumatic and hydraulic malfunctions.</li>
+            <li>Read, interpreted and developed technical documentation for machinery and automation systems.</li>
           </ul>
         </div>
       </div>

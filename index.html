@@ -13,7 +13,7 @@
   Every placeholder is wrapped in [BRACKETS]. Search for "[" in
   your editor to find them all. Sections, in order:
     1. Top bar / status
-    2. Hero (name, title, stats, CTA, photo)
+    2. Hero (ID badge: photo + status, then name, title, stats, CTA)
     3. PANEL A — Skills
     4. PANEL B — Experience (maintenance log)
     5. PANEL C — Projects (job cards)
@@ -165,22 +165,21 @@
     pointer-events:none;
   }
 
-  /* Hero layout: photo stacks above text on mobile, sits beside it on desktop */
   .hero-inner{
     position:relative;z-index:1;
     display:flex;
-    flex-direction:column-reverse;
-    gap:2rem;
+    flex-direction:column;
   }
-  @media (min-width:820px){
-    .hero-inner{
-      flex-direction:row;
-      align-items:flex-start;
-      justify-content:space-between;
-      gap:3rem;
-    }
-    .hero-text{flex:1;min-width:0;}
-    .hero-photo-col{flex-shrink:0;padding-top:.3rem;}
+
+  /* ID-badge header: photo + status line travel together, like a
+     credential badge. Stays a compact row at every width, so it never
+     needs a separate mobile layout. */
+  .id-header{
+    display:flex;
+    align-items:center;
+    gap:1rem;
+    flex-wrap:wrap;
+    margin-bottom:1.6rem;
   }
 
   .hero-eyebrow{
@@ -189,7 +188,7 @@
     letter-spacing:.1em;
     color:var(--amber);
     display:flex;align-items:center;gap:.6rem;
-    margin-bottom:1.2rem;
+    flex-wrap:wrap;
   }
   .hero h1{
     font-family:var(--font-display);
@@ -198,7 +197,7 @@
     font-size:clamp(2.6rem,7.5vw,5rem);
     line-height:.95;
     letter-spacing:-.01em;
-    max-width:14ch;
+    max-width:16ch;
   }
   .hero .role{
     font-family:var(--font-mono);
@@ -246,19 +245,24 @@
   .readout .val{font-family:var(--font-display);font-weight:800;font-size:2.1rem;color:var(--amber);line-height:1;}
   .readout .lbl{font-family:var(--font-mono);font-size:.72rem;color:var(--steel);letter-spacing:.05em;margin-top:.4rem;text-transform:uppercase;}
 
-  /* ---------- Profile photo ---------- */
+  /* ---------- Profile photo (ID-badge size, scales up slightly on wider screens) ---------- */
   .photo-frame{
-    width:150px;
-    height:150px;
+    width:60px;
+    height:60px;
     border-radius:50%;
     overflow:hidden;
-    border:3px solid var(--amber);
-    box-shadow:0 0 0 6px rgba(245,166,35,.12);
+    border:2px solid var(--amber);
+    box-shadow:0 0 0 4px rgba(245,166,35,.12);
     position:relative;
-    margin-inline:auto;
+    flex-shrink:0;
   }
-  @media (min-width:820px){
-    .photo-frame{margin-inline:0;}
+  @media (min-width:480px){
+    .photo-frame{
+      width:72px;
+      height:72px;
+      border-width:3px;
+      box-shadow:0 0 0 5px rgba(245,166,35,.12);
+    }
   }
   .photo-frame img{
     width:100%;
@@ -525,38 +529,37 @@
 <header class="hero">
   <div class="wrap hero-inner">
 
-    <div class="hero-text">
-      <p class="hero-eyebrow"><span class="led" aria-hidden="true"></span> STATUS: AVAILABLE FOR HIRE — NAIROBI, KENYA </p>
-      <h1> ARNOLD OCHIENG' </h1>
-      <p class="role">Industrial Mechatronics Technician — <span>PLC · Electrical · Mechanical</span></p>
-      <p class="bio">
-       Hello! I’m an Industrial Mechatronics Technician with more than 2 years of hands-on work experience.I work on industrial machineries, electrical systems, support in installation, commissioning, servicing and maintenance of production equipment.
-       Aside from Electrical competence, I am capable of undertaking mechanical related tasks. I am experienced in 2D and 3D design and modelling software operation. 
-      </p>
-      <div class="hero-ctas">
-        <a href="[resume.pdf]" class="btn btn-primary" download>Download Résumé ↓</a>
-        <a href="#contact" class="btn btn-secondary">Get In Touch</a>
-      </div>
-
-      <div class="readouts">
-        <div class="readout">
-          <div class="val">[4]</div>
-          <div class="lbl">Years in the field</div>
-        </div>
-        <div class="readout">
-          <div class="val">[18]</div>
-          <div class="lbl">Panels commissioned</div>
-        </div>
-        <div class="readout">
-          <div class="val">[2]</div>
-          <div class="lbl">Certifications</div>
-        </div>
-      </div>
-    </div>
-
-    <div class="hero-photo-col">
+    <!-- ID-badge header: photo travels with the status line, like a credential -->
+    <div class="id-header">
       <div class="photo-frame">
         <img src="ramon.jpg" alt="Arnold Ochieng' — Industrial Mechatronics Technician">
+      </div>
+      <p class="hero-eyebrow"><span class="led" aria-hidden="true"></span> STATUS: AVAILABLE FOR HIRE — NAIROBI, KENYA </p>
+    </div>
+
+    <h1> ARNOLD OCHIENG' </h1>
+    <p class="role">Industrial Mechatronics Technician — <span>PLC · Electrical · Mechanical</span></p>
+    <p class="bio">
+     Hello! I’m an Industrial Mechatronics Technician with more than 2 years of hands-on work experience.I work on industrial machineries, electrical systems, support in installation, commissioning, servicing and maintenance of production equipment.
+     Aside from Electrical competence, I am capable of undertaking mechanical related tasks. I am experienced in 2D and 3D design and modelling software operation. 
+    </p>
+    <div class="hero-ctas">
+      <a href="[resume.pdf]" class="btn btn-primary" download>Download Résumé ↓</a>
+      <a href="#contact" class="btn btn-secondary">Get In Touch</a>
+    </div>
+
+    <div class="readouts">
+      <div class="readout">
+        <div class="val">[4]</div>
+        <div class="lbl">Years in the field</div>
+      </div>
+      <div class="readout">
+        <div class="val">[18]</div>
+        <div class="lbl">Panels commissioned</div>
+      </div>
+      <div class="readout">
+        <div class="val">[2]</div>
+        <div class="lbl">Certifications</div>
       </div>
     </div>
 

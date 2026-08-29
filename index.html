@@ -13,15 +13,14 @@
   Every placeholder is wrapped in [BRACKETS]. Search for "[" in
   your editor to find them all. Sections, in order:
     1. Top bar / status
-    2. Hero (name, title, stats, CTA)
+    2. Hero (name, title, stats, CTA, photo)
     3. PANEL A — Skills
     4. PANEL B — Experience (maintenance log)
     5. PANEL C — Projects (job cards)
     6. PANEL D — Certifications
     7. PANEL E — Contact
   Swap [resume.pdf] for a real link once you upload your CV.
-  Swap [photo.jpg] for a real headshot, or delete the <img> and
-  its wrapper to keep the icon placeholder instead.
+  Swap ramon.jpg for your real headshot path/URL.
   ============================================================
 -->
 
@@ -110,21 +109,6 @@
   .topnav{display:none;}
   @media (min-width:720px){ .topnav{display:flex;} }
 
-  .photo-frame{
-  width:140px;
-  height:140px;
-  border-radius:8px;
-  overflow:hidden;
-  border:2px solid var(--amber);
-  box-shadow:0 0 0 6px rgba(245,166,35,.12);
-  margin-bottom:1.4rem;
-  position:relative;
-}
-.photo-frame img{
-  width:100%;
-  height:100%;
-  object-fit:cover;
-}
   /* ---------- Panel label (breaker-panel style) ---------- */
   .panel-label{
     font-family:var(--font-mono);
@@ -180,7 +164,25 @@
     opacity:.18;
     pointer-events:none;
   }
-  .hero-inner{position:relative;z-index:1;}
+
+  /* Hero layout: photo stacks above text on mobile, sits beside it on desktop */
+  .hero-inner{
+    position:relative;z-index:1;
+    display:flex;
+    flex-direction:column-reverse;
+    gap:2rem;
+  }
+  @media (min-width:820px){
+    .hero-inner{
+      flex-direction:row;
+      align-items:flex-start;
+      justify-content:space-between;
+      gap:3rem;
+    }
+    .hero-text{flex:1;min-width:0;}
+    .hero-photo-col{flex-shrink:0;padding-top:.3rem;}
+  }
+
   .hero-eyebrow{
     font-family:var(--font-mono);
     font-size:.8rem;
@@ -243,6 +245,26 @@
   .readout{background:var(--ink);padding:1.1rem 1.2rem;}
   .readout .val{font-family:var(--font-display);font-weight:800;font-size:2.1rem;color:var(--amber);line-height:1;}
   .readout .lbl{font-family:var(--font-mono);font-size:.72rem;color:var(--steel);letter-spacing:.05em;margin-top:.4rem;text-transform:uppercase;}
+
+  /* ---------- Profile photo ---------- */
+  .photo-frame{
+    width:150px;
+    height:150px;
+    border-radius:50%;
+    overflow:hidden;
+    border:3px solid var(--amber);
+    box-shadow:0 0 0 6px rgba(245,166,35,.12);
+    position:relative;
+    margin-inline:auto;
+  }
+  @media (min-width:820px){
+    .photo-frame{margin-inline:0;}
+  }
+  .photo-frame img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+  }
 
   /* ---------- Skills panel (switch styling) ---------- */
   .skills-grid{
@@ -502,35 +524,42 @@
 <!-- ============ HERO ============ -->
 <header class="hero">
   <div class="wrap hero-inner">
-    <p class="hero-eyebrow"><span class="led" aria-hidden="true"></span> STATUS: AVAILABLE FOR HIRE — NAIROBI, KENYA </p>
-    <h1> ARNOLD OCHIENG' </h1>
-    <div class="photo-frame">
-      <img src="ramon.jpg" alt="Arnold Ochieng' — Industrial Mechatronics Technician">
-    </div>
-    <p class="role">Industrial Mechatronics Technician — <span>PLC · Electrical · Mechanical</span></p>
-    <p class="bio">
-     Hello! I’m an Industrial Mechatronics Technician with more than 2 years of hands-on work experience.I work on industrial machineries, electrical systems, support in installation, commissioning, servicing and maintenance of production equipment.
-     Aside from Electrical competence, I am capable of undertaking mechanical related tasks. I am experienced in 2D and 3D design and modelling software operation. 
-    </p>
-    <div class="hero-ctas">
-      <a href="[resume.pdf]" class="btn btn-primary" download>Download Résumé ↓</a>
-      <a href="#contact" class="btn btn-secondary">Get In Touch</a>
+
+    <div class="hero-text">
+      <p class="hero-eyebrow"><span class="led" aria-hidden="true"></span> STATUS: AVAILABLE FOR HIRE — NAIROBI, KENYA </p>
+      <h1> ARNOLD OCHIENG' </h1>
+      <p class="role">Industrial Mechatronics Technician — <span>PLC · Electrical · Mechanical</span></p>
+      <p class="bio">
+       Hello! I’m an Industrial Mechatronics Technician with more than 2 years of hands-on work experience.I work on industrial machineries, electrical systems, support in installation, commissioning, servicing and maintenance of production equipment.
+       Aside from Electrical competence, I am capable of undertaking mechanical related tasks. I am experienced in 2D and 3D design and modelling software operation. 
+      </p>
+      <div class="hero-ctas">
+        <a href="[resume.pdf]" class="btn btn-primary" download>Download Résumé ↓</a>
+        <a href="#contact" class="btn btn-secondary">Get In Touch</a>
+      </div>
+
+      <div class="readouts">
+        <div class="readout">
+          <div class="val">[4]</div>
+          <div class="lbl">Years in the field</div>
+        </div>
+        <div class="readout">
+          <div class="val">[18]</div>
+          <div class="lbl">Panels commissioned</div>
+        </div>
+        <div class="readout">
+          <div class="val">[2]</div>
+          <div class="lbl">Certifications</div>
+        </div>
+      </div>
     </div>
 
-    <div class="readouts">
-      <div class="readout">
-        <div class="val">[4]</div>
-        <div class="lbl">Years in the field</div>
-      </div>
-      <div class="readout">
-        <div class="val">[18]</div>
-        <div class="lbl">Panels commissioned</div>
-      </div>
-      <div class="readout">
-        <div class="val">[2]</div>
-        <div class="lbl">Certifications</div>
+    <div class="hero-photo-col">
+      <div class="photo-frame">
+        <img src="ramon.jpg" alt="Arnold Ochieng' — Industrial Mechatronics Technician">
       </div>
     </div>
+
   </div>
 </header>
 
@@ -784,10 +813,10 @@ KONE Equipment.</li>
         <p>Open to full-time roles, contract commissioning work, and site consultations. Response time is typically within 24 hours.</p>
       </div>
       <ul class="contact-list">
-        <li><a href="mailto: arnoldochieng13@outlook.com"><span class="dot" aria-hidden="true"></span> arnoldochieng13@outlook.com </a></li>
-        <li><a href="tel:[+000000000]"><span class="dot" aria-hidden="true"></span> +254 113 935 448 </a></li>
+        <li><a href="mailto:arnoldochieng13@outlook.com"><span class="dot" aria-hidden="true"></span> arnoldochieng13@outlook.com </a></li>
+        <li><a href="tel:+254113935448"><span class="dot" aria-hidden="true"></span> +254 113 935 448 </a></li>
         <li><a href="https://www.linkedin.com/in/arnold-ochieng-178a92364/" target="_blank" rel="noopener"><span class="dot" aria-hidden="true"></span> LinkedIn</a></li>
-        <li><a href="https://wa.link/pv93x4]" target="_blank" rel="noopener"><span class="dot" aria-hidden="true"></span> WhatsApp</a></li>
+        <li><a href="https://wa.link/pv93x4" target="_blank" rel="noopener"><span class="dot" aria-hidden="true"></span> WhatsApp</a></li>
         <li><a href="https://drive.google.com/file/d/1o7yWda_UA8wuI_flecIX8drmdtuNP1sG/view?usp=sharing" download><span class="dot" aria-hidden="true"></span> Download Résumé (PDF)</a></li>
       </ul>
     </div>
@@ -795,7 +824,7 @@ KONE Equipment.</li>
 </section>
 
 <footer>
-  © <span id="year"></span> Ramon. Built to be read by a hiring manager in under 30 seconds.
+  © <span id="year"></span> Arnold Ochieng'. Built to be read by a hiring manager in under 30 seconds.
 </footer>
 
 <script>
